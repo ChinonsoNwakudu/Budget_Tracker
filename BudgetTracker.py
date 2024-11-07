@@ -59,33 +59,35 @@ def show_summary():
     
 def main_menu():
     while True:
-        print("\n----MENU----\n")
-        print("\nPlease select an option: ")
+        print("\n---- MENU ----")
         print("1. Set your budget")
-        print("2. Add your expense")
-        print("3. Show Summary")
-        print("4. Exit!")
-       
+        print("2. Add an expense")
+        print("3. Show summary")
+        print("4. Exit")
 
+        selection = input("Enter your choice: ").strip()  # Removes extra spaces around the input
         
-        selection = input("Enter your choice: ")
         if selection == "1":
-            budget = int(input("Enter your budget here: "))
-            set_budget(budget)
+            budget_amount = input("Enter your budget here: ")
+            if budget_amount.isdigit():  # Check if the input is a number
+                set_budget(int(budget_amount))
+            else:
+                print("Please enter a valid number for the budget.")
         elif selection == "2":
-            amount = int(input("Enter your amount: "))
-            item = input("Enter a category: ")
-            expense_adding(amount,item)
+            amount = input("Enter the expense amount: ")
+            if amount.isdigit():  # Check if the input is a number
+                item = input("Enter a category: ")
+                expense_adding(int(amount), item)
+            else:
+                print("Please enter a valid number for the expense amount.")
         elif selection == "3":
             show_summary()
-            input("Press Enter to return to the menu...")
+            input("Press Enter to return to the menu...")  # Wait for user to press Enter before returning to menu
         elif selection == "4":
             print("Goodbye!")
-            time.sleep(1)  # Adding a small delay before exiting
-            break 
-               
+            break  # Exit the program
         else:
-            print("Your selection is incorrect!")    
-main_menu()            
+            print("Your selection is incorrect! Please try again.")
 
-                 
+# Run the main menu
+main_menu()
