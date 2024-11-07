@@ -1,6 +1,6 @@
 # Budget Tracker
 
-A simple budget tracker to manage expenses and keep track of your spending against a predefined budget.
+A simple budget tracker I created to manage expenses and keep track of my spending against a predefined budget.
 
 ## Features
 - Set a budget
